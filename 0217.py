@@ -1,3 +1,6 @@
+
+#!/user/bin/env python3
+# -*- coding: utf-8 -*-
 import re #引入模块re
 
 import json #引入模块json
