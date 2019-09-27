@@ -41,7 +41,7 @@ def getcounty(s):            #获得县
     return res.group(0)
 
 def gettown(s):         #获得城镇
-    res = re.search("(.*?[镇口乡])|(.*?街道)", s)
+    res = re.search("(.*?[镇乡])|(.*?街道)", s)
     if res == None:
         return ""
     return res.group(0)
