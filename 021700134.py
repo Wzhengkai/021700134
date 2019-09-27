@@ -67,14 +67,10 @@ S = S[2:]   #将等级后的部分重新赋给S
 RESULT = S.split(",")   #由于名字后立马跟着一个“，”，所以用逗号将总的地址分成两部分，逗号前的和逗号后的
 NAME = RESULT[0]    #逗号前的肯定为名字，所以可以提取出名字
 NOWS = RESULT[1]    #现在只要处理逗号后的部分，即除去名字外的地址信息
-print ("old NOWS:"+NOWS)
 TELNUM = gettelnum(NOWS)    #调用gettelnum得到电话号码，由于电话号码都是11位的，所以用正则表达式匹配出连续的11个数字即可
 NOWS = NOWS.replace(TELNUM, "", 1)  #由于已经匹配出电话号码了，所以可以将电话号码去掉，以缩短要处理的地址长度.参数1表替换次数不超过一次
-print ("new NOWS:"+NOWS)
 NOWS = NOWS.replace(".", "", 1)     #把结尾句号再替换掉，也是为了缩短字符串
-print ("new NOWS1:"+NOWS)
 PROVINCE = getprovince(NOWS)        #处理省和直辖市，即处理第一级地址
-print ("PROVINCE:"+PROVINCE)
 if PROVINCE in ('北京', '上海', '天津', '重庆'):
     NOWS = NOWS.replace(PROVINCE, PROVINCE + "市", 1)    #因直辖市的PROVINCE就是其本身，所以当PROVINCE提取出来后，就要手动为其增加市
 elif PROVINCE in ('北京市', '上海市', '天津市', '重庆市'):
